@@ -1,10 +1,4 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import type { Route } from "./+types/root";
 
 // Middleware runs on EVERY request server-side - catches AI bots!
@@ -24,14 +18,16 @@ export const middleware: Route.MiddlewareFunction[] = [
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        trackingId: "hGm_1D5K3BDAFScG",
+        trackingId: "pREtzfJEen39nEbF",
         userAgent: ua,
         path,
         ip,
       }),
     }).catch(() => {});
 
-    console.log(`[Middleware] ${request.method} ${path} - UA: ${ua.slice(0, 50)}...`);
+    console.log(
+      `[Middleware] ${request.method} ${path} - UA: ${ua.slice(0, 50)}...`
+    );
 
     return next();
   },
